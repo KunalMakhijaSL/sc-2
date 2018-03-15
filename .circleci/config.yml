@@ -7,10 +7,10 @@ jobs:
       - checkout
       - run: 
           name: Install Sauce
-          command: npm install sauce
+          command: npm install saucelabs
       - run: 
           name: sauce testing
-          command: npm run-script sauce
+          command: npm run-script saucelabs
           environment:
             SAUCE_USERNAME: # Refer to circleci.com/docs/2.0/env-vars documentation for info
             SAUCE_ACCESS_KEY: # about setting up environment variables for auth secrets
