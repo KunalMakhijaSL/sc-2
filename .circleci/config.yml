@@ -10,7 +10,7 @@ jobs:
           command: npm install saucelabs
       - run: 
           name: sauce testing
-          command: npm run-script saucelabs
+          command: npm run-script sauce
           environment:
             SAUCE_USERNAME: # Refer to circleci.com/docs/2.0/env-vars documentation for info
             SAUCE_ACCESS_KEY: # about setting up environment variables for auth secrets
@@ -19,4 +19,4 @@ jobs:
       - run: # Run selenium tests
           command: nosetests
       - run: # wait for Sauce Connect to close the tunnel
-          command: killall --wait sc  
+          command: killall --wait sc 
