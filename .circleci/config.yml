@@ -6,11 +6,13 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Install Sauce
-          command: npm install saucelabs
+          name: Install Sauce Connect
+          command: |
+            wget https://saucelabs.com/downloads/sc-4.4.12-linux.tar.gz
+            tar -xzf sc-latest-linux.tar.gz
       - run: 
           name: sauce testing
-          command: npm run-script sauce
+          command: tar -xzf sc-4.4.12-linux.tar.gz
           environment:
             SAUCE_USERNAME: # Refer to circleci.com/docs/2.0/env-vars documentation for info
             SAUCE_ACCESS_KEY: # about setting up environment variables for auth secrets
@@ -20,3 +22,4 @@ jobs:
           command: nosetests
       - run: # wait for Sauce Connect to close the tunnel
           command: killall --wait sc 
+
